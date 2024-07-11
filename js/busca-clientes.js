@@ -65,10 +65,22 @@ function buscaClientes() {
    req.send();
 }
 
-function
-delCliente(){
-   let ret = confirm("Confirmar a exclusão do registro? ");
-   if(ret==true){
-      console.log(id);
+function delCliente(id){
+   if(confirm("Confirma a exclusão do registro") == true){
+      let data = new FormData();
+         data.append("id", id);
+         console.log(data);
+         let xhr = new XMLHttpRequest();
+         xhr.onload = function(){
+            if(xhr.status==200){
+               alert("Exclusao Ok");
+            }
+            else{
+               alert(`Errp: ${xhr.status} ${xhr.statusText}`);
+            }
+         }
+         xhr.open("POST","./php/cliente-delete.php");
+         xhr.send(data);
+      }
    }
-}
+
