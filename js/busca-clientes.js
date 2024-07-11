@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", buscaClientes);
 btn.addEventListener("click", buscaClientes);
 
 function buscaClientes() {
-   alert("buscaClientes");
+  // alert("buscaClientes");
    const req = new XMLHttpRequest();
 
    req.onload = function () {
