@@ -1,6 +1,7 @@
 const btnBusca = document.getElementById("btnBusca");
 const btnIncluirCliente = document.getElementById("btnIncluirCliente");
 const btnIncluir = document.getElementById("btnIncluir");
+const btnAtualizar = document.getElementById("btnAtualizar");
 const content = document.getElementById("content");
 const frmIncluirCliente = document.getElementById("frmIncluirCliente");
 
@@ -66,9 +67,10 @@ function showClientUpForm(codigo) {
    let xhr = new XMLHttpRequest();
    xhr.onload = function () {
       if (xhr.status === 200) {
-         // console.log(xhr.responseText);
+         console.log(xhr.responseText);
          cliente = JSON.parse(xhr.responseText)[0];
          console.log(cliente);
+         
          const frm = document.getElementById("frmAlterarCliente");
          frm.codigo.value = cliente.codigo;
          frm.nome.value = cliente.nome;
