@@ -1,22 +1,25 @@
 <?php
-//print_r($_SERVER);
-
-//print_r($_POST);
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $cliente =  new stdClass();
-    foreach ($_POST as $key => $value) {
+    // opcao1
+    $cliente = new stdClass();
+    foreach($_POST as $key => $value) {
         $cliente->$key = $value;
     }
-    var_dump($cliente);
+    print(implode(";",$_POST));
 
     $filename = "txt/clientes.csv";
-    $file = fopen($filename, "a");
-
+    $file = fopen($filename, "a"); // abre arquivo modo append
     if ($file) {
+        // opcao 1 - precisa das linhas 4 a 7 acima
         $linha = "$cliente->codigo;$cliente->nome;$cliente->email\n";
-        fwrite($file, $linha);
+        // opcao 2
+        //$linha = $_POST['codigo'].";".$_POST['nome'].";".$_POST['email']."\n";
+        //$linha = implode(";",$_POST);
+        
+        fwrite($file,$linha);
         fclose($file);
+
+        // informar o cliente que a inclusão foi feita com sucesso
     }
 }
-  
+?>
