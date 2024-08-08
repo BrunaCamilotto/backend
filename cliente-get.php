@@ -11,7 +11,5 @@ try {
     print($json);
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
-
 }
-$conn = null;
 ?>

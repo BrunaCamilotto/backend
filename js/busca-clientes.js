@@ -67,10 +67,9 @@ function showClientUpForm(codigo) {
    let xhr = new XMLHttpRequest();
    xhr.onload = function () {
       if (xhr.status === 200) {
-         console.log(xhr.responseText);
+         // console.log(xhr.responseText);
          cliente = JSON.parse(xhr.responseText)[0];
          console.log(cliente);
-         
          const frm = document.getElementById("frmAlterarCliente");
          frm.codigo.value = cliente.codigo;
          frm.nome.value = cliente.nome;
@@ -81,6 +80,23 @@ function showClientUpForm(codigo) {
    xhr.open("GET", `cliente-get.php?codigo=${codigo}`);
    xhr.send();
 }
+
+btnAtualizar.addEventListener("click", () => {
+   const frm = document.getElementById("frmAlterarCliente");
+   let cliente = new FormData(frm);
+
+   let xhr = new XMLHttpRequest();
+   xhr.onload = function() {
+      if (xhr.status === 200) {
+         console.log(xhr.responseText);
+         buscaClientes();
+         bootstrap.Modal.getInstance(document.getElementById("modalEditar")).hide();
+      }
+   }
+
+   xhr.open("POST", "cliente-update.php");
+   xhr.send(cliente);
+})
 
 function delCliente(id) {
    const ret = confirm("Confirma a exclusão do registro?");

@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
+  <style>
+    #frmIncluirCliente {
+      max-width: 500px;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -21,7 +27,7 @@
       <button id="btnIncluirCliente" class="btn btn-secondary">Novo Cliente</button>
     </div>
     <div id="content"></div>
-    <form id="frmIncluirCliente" method="post" style="display: none;" class=" container w-100">
+    <form id="frmIncluirCliente" method="post" style="display: none;" class=" container">
       
       <div class="form-floating mb-3">
         <input type="text" class="form-control" name="nome" id="inNome" required>
@@ -33,8 +39,10 @@
         <label for="inEmail">Email</label>
       </div>
 
-      <input type="submit" id="btnIncluir" class="btn btn-primary" value="Enviar">
-      <input type="reset" id="btnReset" class="btn btn-warning" value="Limpar">
+      <div class="d-flex gap-3">
+        <input type="submit" id="btnIncluir" class="btn btn-primary form-control" value="Enviar">
+        <input type="reset" id="btnReset" class="btn btn-warning form-control" value="Limpar">
+      </div>
     </form>
 
     <!-- Modal -->
@@ -63,7 +71,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-primary">Salvar alterações</button>
+            <button type="button" class="btn btn-primary" id="btnAtualizar">Salvar alterações</button>
           </div>
         </div>
       </div>
