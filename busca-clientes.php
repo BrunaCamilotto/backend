@@ -1,8 +1,20 @@
 <?php
     require_once("conexao.php");
 
+    
+
+//COMO TESTAR :
+
+
+
     try {
-        $stmt = $conn->prepare("SELECT * FROM cliente");
+        if expressaoBusca estiver vazio{
+            
+            $stmt = $conn->prepare("SELECT * FROM cliente");
+        }else{
+            $stmt = $conn->prepare("SELECT * FROM cliente WHERE nome LIKE :busca ");
+
+        }
         $stmt->execute();
     
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);

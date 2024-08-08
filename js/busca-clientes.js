@@ -5,6 +5,7 @@ const btnAtualizar = document.getElementById("btnAtualizar");
 const content = document.getElementById("content");
 const frmIncluirCliente = document.getElementById("frmIncluirCliente");
 
+
 btnIncluirCliente.addEventListener("click", (e) => {
    frmIncluirCliente.style.display = "block";
 })
@@ -32,8 +33,12 @@ btnIncluir.addEventListener("click", (e) => {
 
 btnBusca.addEventListener("click", buscaClientes);
 document.addEventListener("DOMContentLoaded", buscaClientes());
+const frmAlterarCliente = document.getElementById("frmAlterarCliente");
+frmAlterarCliente.addEventListener("submit",buscaClientes);
 
 function buscaClientes() {
+console.log("buscaClientes")
+
    const req = new XMLHttpRequest();
    req.onload = function () {
       if (req.status == 200) {
